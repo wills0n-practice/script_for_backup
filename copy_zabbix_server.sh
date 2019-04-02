@@ -24,4 +24,4 @@ service zabbix-server start
 tar -czvf /mnt/backup_zabbix/zabbix_server/`date +%d-%m-%Y`.backup_zabbix.tar.gz  /mnt/backup_zabbix/
 
 #Удаление дампа бд 3-ёх дневной давности
-find /mnt/backup_zabbix/zabbix_server/ -name "*.sql" -mtime +2 -exec rm -f {} \;
+find /mnt/backup_zabbix/zabbix_server/ -name "*.sql" -mtime +1 -exec rm -f {} \;
