@@ -20,8 +20,11 @@ mysqldump -uzabbix -p31832312 zabbix > /mnt/backup_zabbix/zabbix_server/`date +%
 #Запуск сервиса Zabbix
 service zabbix-server start
 
-#Создание архива 
-tar -czvf /mnt/backup_zabbix/zabbix_server/`date +%d-%m-%Y`.backup_zabbix.tar.gz  /mnt/backup_zabbix/
-
 #Удаление дампа бд 3-ёх дневной давности
 find /mnt/backup_zabbix/zabbix_server/ -name "*.sql" -mtime +1 -exec rm -f {} \;
+
+#Создание архива
+tar -czvf /mnt/backup_zabbix/backup_server/`date +%d-%m-%Y`.backup_zabbix.tar.gz  /mnt/backup_zabbix/zabbix_server
+
+
+
