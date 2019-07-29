@@ -26,5 +26,6 @@ find /mnt/backup_zabbix/zabbix_server/ -name "*.sql" -mtime +1 -exec rm -f {} \;
 #Создание архива
 tar -czvf /mnt/backup_zabbix/backup_server/`date +%d-%m-%Y`.backup_zabbix.tar.gz  /mnt/backup_zabbix/zabbix_server
 
-
+#Удаление архива бекапов  более 55 дней давности
+find /mnt/backup_zabbix/backup_server/ -name "*.tar.gz" -mtime +50 -exec rm -f {} \;
 
